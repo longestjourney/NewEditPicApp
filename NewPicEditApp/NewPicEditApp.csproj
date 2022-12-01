@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Histogram\Histogram.cs" />
     <Compile Include="HistogramClass.cs" />
     <Compile Include="PropQuestion.cs">
       <SubType>Form</SubType>

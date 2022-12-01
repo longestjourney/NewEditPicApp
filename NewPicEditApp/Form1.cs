@@ -18,6 +18,9 @@ namespace NewPicEditApp
         int max;
         double cumulativesum=0;
         internal Bitmap picboxCopyMap;
+
+
+        
         public PicForm() { InitializeComponent(); }
         private void PicForm_Load(object sender, EventArgs e) { }
         private void bOpen_Click(object sender, EventArgs e)
@@ -28,6 +31,8 @@ namespace NewPicEditApp
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     this.picbox.Image = new Bitmap(dialog.FileName);
+
+                    Histogram myHistogram = new Histogram(picboxCopyMap); //w zasadzie to nie muszę tutaj wtedy czyścić tych tablic, bo każdy obiekt ma swoje prywatne
                     //czyszczenie tablic histogramów żeby przy załadowaniu nowego obrazka były puste
                     TablesMethods.ZeroTables(RHistogram);
                     TablesMethods.ZeroTables(GHistogram);
