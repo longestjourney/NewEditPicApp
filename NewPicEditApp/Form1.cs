@@ -20,7 +20,7 @@ namespace NewPicEditApp
         internal Bitmap picboxCopyMap;
 
 
-        
+        //to jest konstruktor okienka PicForm
         public PicForm() { InitializeComponent(); }
         private void PicForm_Load(object sender, EventArgs e) { }
         private void bOpen_Click(object sender, EventArgs e)
