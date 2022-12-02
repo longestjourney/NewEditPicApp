@@ -14,6 +14,7 @@ namespace NewPicEditApp
             int[] GHistogram = new int[256];
             int[] BHistogram = new int[256];
             int[] AHistogram = new int[256];
+            int[,] FullHistogram = new int[256, 4];
             Bitmap lol;
             public Histogram(Bitmap lol)
             {
@@ -29,8 +30,20 @@ namespace NewPicEditApp
                         AHistogram[Convert.ToInt32(pixelColor.A.ToString())] += 1;
                     }
                 }
+
+                 for (int w = 0; w < 256; ++w)
+                 {
+                   FullHistogram[w,0] = RHistogram[w];
+                   FullHistogram[w,1] = GHistogram[w];
+                   FullHistogram[w,2] = BHistogram[w];
+                   FullHistogram[w,3] = AHistogram[w];
+                    
+                 }
+
             //to ma być jakby tworzenie histogramu - co zgadza się z ideą konstruktora
             }
+        public int MyProperty { get; private set; }
+
 
     }
 }
