@@ -22,9 +22,14 @@ namespace NewPicEditApp
         }
 
         //moze to byc void i po prostu przypisanie do powyższej zmiennej, bo wtedy ten histogram bylby przypisany do obiektu
-        public Histogram makeHistogram()
+        public void makeHistogram()
         {
-            return new Histogram(mypicture);
+            histogram = new Histogram(mypicture);
+        }
+
+        public Bitmap toBitmap()
+        {
+            return mypicture;
         }
     }
 }
