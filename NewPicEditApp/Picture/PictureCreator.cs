@@ -9,19 +9,22 @@ using System.Windows.Forms;
 
 namespace NewPicEditApp
 {
-    abstract internal class PictureCreator
+    static internal class PictureCreator
     {
-        Dictionary<string, PictureMake> pictures = new Dictionary<string, PictureMake>();
-        
 
-        private static interface PictureMake
+        public static Picture CreatePicture(Bitmap bitmap, string s) 
         {
-             Picture Make(Bitmap bitmap);
+            switch (s)
+            {
+                case "new": return new Picture(bitmap);
+
+                case "invert": return new PictureInvert(bitmap);
+                
+                default: return null;
+            }
         }
-        public static Picture Make(Dictionary<string, PictureMake> pictures, Bitmap bitmap)
-        {
-            return pictures.V.Make(bitmap);
-        }
+
+
+
     }
-}
 }
