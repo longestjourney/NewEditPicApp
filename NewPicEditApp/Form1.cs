@@ -186,9 +186,9 @@ namespace NewPicEditApp
         private void co_onepoint_operations_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-            switch (co_onepoint_operations.SelectedIndex)
+            switch (co_onepoint_operations.Text)
             {
-                case 0:
+                case "Negatyw":
                     //to negatyw
 
                     Bitmap EditMap = new Bitmap(this.picboxCopyMap);
@@ -206,26 +206,26 @@ namespace NewPicEditApp
                     this.picboxCopyMap = EditMap;
                     picbox.Image = this.picboxCopyMap;
                     break;
-                case 1:
+                case "Progowanie":
                     // z domyślnym progiem który jest połową dostępnych szarości
                     EditMap = new Bitmap(this.picboxCopyMap);
                     PropQuestion propQuestion = new PropQuestion(EditMap, this,1);
                     propQuestion.Show();
 
                     break;
-                case 2:
+                case "Progowanie z poziomami":
                     // z domyślnym progiem który jest połową dostępnych szarości
                     EditMap = new Bitmap(this.picboxCopyMap);
                     PropQuestion propQuestion2 = new PropQuestion(EditMap, this, 2);
                     propQuestion2.Show();
 
                     break;
-                case 3:
+                case "Posteryzacja":
                     EditMap = new Bitmap(this.picboxCopyMap);
                     PropQuestion propQuestion3 = new PropQuestion(EditMap, this, 3);
                     propQuestion3.Show();
                     break;
-                case 4:
+                case "Rozciąganie selektywne":
                     EditMap = new Bitmap(this.picboxCopyMap);
                     PropQuestion propQuestion4 = new PropQuestion(EditMap, this, 4);
                     propQuestion4.Show();
