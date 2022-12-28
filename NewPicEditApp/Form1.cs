@@ -185,25 +185,14 @@ namespace NewPicEditApp
 
         private void co_onepoint_operations_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            //to można nawet bez switcha zrobić, wystarczy różne parametry co_onepoint_operations podawać do create picture
             switch (co_onepoint_operations.Text)
             {
                 case "Negatyw":
                     //to negatyw
 
                     Bitmap EditMap = new Bitmap(this.picboxCopyMap);
-                    for (int x = 0; x < EditMap.Width; ++x)
-                    {
-                        for (int y = 0; y < EditMap.Height; ++y)
-                        {
-                            Color pixelColor = EditMap.GetPixel(x, y);
-                            Color newColor = Color.FromArgb(0xff - pixelColor.R
-                           , 0xff - pixelColor.G, 0xff - pixelColor.B);
-                            EditMap.SetPixel(x, y, newColor);
-
-                        }
-                    }
-                    this.picboxCopyMap = EditMap;
+                    this.picboxCopyMap = PictureCreator.CreatePicture(EditMap, "invert").toBitmap();
                     picbox.Image = this.picboxCopyMap;
                     break;
                 case "Progowanie":
