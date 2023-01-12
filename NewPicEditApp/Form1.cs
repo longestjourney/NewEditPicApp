@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
@@ -16,61 +17,32 @@ namespace NewPicEditApp
         bool is_grayscale;
         int min;
         int max;
-        double cumulativesum=0;
+        double cumulativesum = 0;
         internal Bitmap picboxCopyMap;
-
+        List<string> onePixelOpList = new List<string> { "invert", "progowanie", "costam" };
 
         //to jest konstruktor okienka PicForm
         public PicForm() { InitializeComponent(); }
+
         private void PicForm_Load(object sender, EventArgs e) { }
-        private void bOpen_Click(object sender, EventArgs e)
+
+        private void pokażToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {//próba otwarcia pliku z obrazem
-                dialog.Filter = "bmp files(*.bmp)|*.bmp| jpg files(.*jpg)|*.jpg| PNG files(.*png)|*.png| All Files(*.*)|*.**";
-                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    this.picboxCopyMap = new Bitmap(dialog.FileName);
-                    this.picbox.Image = picboxCopyMap;
-                    Picture mypicture = new Picture(picboxCopyMap);
 
-                    Histogram myHistogram = new Histogram(picboxCopyMap); //w zasadzie to nie muszę tutaj wtedy czyścić tych tablic, bo każdy obiekt ma swoje prywatne
-                    //czyszczenie tablic histogramów żeby przy załadowaniu nowego obrazka były puste
-                    TablesMethods.ZeroTables(RHistogram);
-                    TablesMethods.ZeroTables(GHistogram);
-                    TablesMethods.ZeroTables(BHistogram);
-                    TablesMethods.ZeroTables(AHistogram);
-                    cumulativesum = 0;
+        }
 
-                    //histogram musi tu zaczac istniec
-                    
-                    for (int x = 0; x < this.picboxCopyMap.Width; ++x)
-                    {
-                        for (int y = 0; y < this.picboxCopyMap.Height; ++y)
-                        {
-                            Color pixelColor = this.picboxCopyMap.GetPixel(x, y);
-                            RHistogram[Convert.ToInt32(pixelColor.R.ToString())] += 1;
-                            GHistogram[Convert.ToInt32(pixelColor.G.ToString())] += 1;
-                            BHistogram[Convert.ToInt32(pixelColor.B.ToString())] += 1;
-                            AHistogram[Convert.ToInt32(pixelColor.A.ToString())] += 1;
-                        }
-                    }
-                    cumulativesum = Width * Height;
-                    is_grayscale = TablesMethods.IsGrayScale(RHistogram, GHistogram, BHistogram);
-                    min = TablesMethods.MinTable(RHistogram);
-                    max = TablesMethods.MaxTable(RHistogram);
-                    this.picboxCopyMap = picboxCopyMap;
-                }
+        private void rozciąToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("An Error Occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+        }
+
+        private void equalizacjaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
         private void co_histogram_operations_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(this.picboxCopyMap != null)
+            if (this.picboxCopyMap != null)
             {
 
                 switch (co_histogram_operations.SelectedIndex)
@@ -84,8 +56,8 @@ namespace NewPicEditApp
                         TablesMethods.ZeroTables(AHistogram);
 
                         //histogram musi tu zaczac istniec
-                        
-                        
+
+
                         for (int x = 0; x < picboxCopyMap.Width; ++x)
                         {
                             for (int y = 0; y < picboxCopyMap.Height; ++y)
@@ -141,8 +113,8 @@ namespace NewPicEditApp
                     case 2: //equalizacja
 
                         EditMap = new Bitmap(this.picboxCopyMap);
-                        double[] normalhist = new double [256];
-                        
+                        double[] normalhist = new double[256];
+
                         for (int i = 0; i < normalhist.Length; i++)
                         {
                             int numberofk = RHistogram[i];
@@ -152,19 +124,19 @@ namespace NewPicEditApp
                         {
                             for (int y = 0; y < EditMap.Height; ++y)
                             {
-                                double suma=0;
+                                double suma = 0;
                                 Color pixelColor = EditMap.GetPixel(x, y);
                                 int k = pixelColor.R;
-                                for (int n = 0; n<=k; ++n)
+                                for (int n = 0; n <= k; ++n)
                                 {
-                                    suma+=normalhist[n];
+                                    suma += normalhist[n];
                                 }
-                                suma = suma * (max-min);
+                                suma = suma * (max - min);
                                 if (Math.Floor(suma) > 255) {
                                     Color newColor = Color.FromArgb(255, 255, 255);
                                     EditMap.SetPixel(x, y, newColor);
                                 }
-                               
+
                                 else
                                 {
                                     Color newColor = Color.FromArgb((int)Math.Floor(suma), (int)Math.Floor(suma), (int)Math.Floor(suma));
@@ -182,46 +154,71 @@ namespace NewPicEditApp
             else { MessageBox.Show("Nie wybrano obrazu", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
-
-        private void co_onepoint_operations_SelectedIndexChanged(object sender, EventArgs e)
+        private void menuOpen_Click(object sender, EventArgs e)
         {
-            //to można nawet bez switcha zrobić, wystarczy różne parametry co_onepoint_operations podawać do create picture
-            switch (co_onepoint_operations.Text)
-            {
-                case "Negatyw":
-                    //to negatyw
+            try
+            {//próba otwarcia pliku z obrazem
+                dialog.Filter = "bmp files(*.bmp)|*.bmp| jpg files(.*jpg)|*.jpg| PNG files(.*png)|*.png| All Files(*.*)|*.**";
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    this.picboxCopyMap = new Bitmap(dialog.FileName);
+                    this.picbox.Image = picboxCopyMap;
+                    Picture mypicture = new Picture(picboxCopyMap);
+                }
 
-                    Bitmap EditMap = new Bitmap(this.picboxCopyMap);
-                    this.picboxCopyMap = PictureCreator.CreatePicture(EditMap, "invert").toBitmap();
-                    picbox.Image = this.picboxCopyMap;
-                    break;
-                case "Progowanie":
-                    // z domyślnym progiem który jest połową dostępnych szarości
-                    EditMap = new Bitmap(this.picboxCopyMap);
-                    PropQuestion propQuestion = new PropQuestion(EditMap, this,1);
-                    propQuestion.Show();
-
-                    break;
-                case "Progowanie z poziomami":
-                    // z domyślnym progiem który jest połową dostępnych szarości
-                    EditMap = new Bitmap(this.picboxCopyMap);
-                    PropQuestion propQuestion2 = new PropQuestion(EditMap, this, 2);
-                    propQuestion2.Show();
-
-                    break;
-                case "Posteryzacja":
-                    EditMap = new Bitmap(this.picboxCopyMap);
-                    PropQuestion propQuestion3 = new PropQuestion(EditMap, this, 3);
-                    propQuestion3.Show();
-                    break;
-                case "Rozciąganie selektywne":
-                    EditMap = new Bitmap(this.picboxCopyMap);
-                    PropQuestion propQuestion4 = new PropQuestion(EditMap, this, 4);
-                    propQuestion4.Show();
-                    break;
-                default:
-                    break;
             }
+            catch (Exception)
+            {
+                MessageBox.Show("An Error Occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public class jakiesoperacje{}
+
+
+        // string onePixelOpList = new List<string> {"invert", "progowanie", "costam" };
+        // this.picboxCopyMap = PictureCreator.CreatePicture(EditMap, onePixelOpList[co_onepoint_operations.SelectedIndex]).toBitmap();
+
+    //Negatyw click
+    private void miInvert_Click(object sender, EventArgs e)
+        {
+            Bitmap EditMap = new Bitmap(this.picboxCopyMap);
+            picboxCopyMap = PictureCreator.CreatePicture(EditMap,
+                onePixelOpList[0]).toBitmap();
+            picbox.Image = picboxCopyMap;
+        }
+
+        //
+        private void zwykłeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap EditMap = new Bitmap(this.picboxCopyMap);
+            EditMap = new Bitmap(this.picboxCopyMap);
+            PropQuestion propQuestion = new PropQuestion(EditMap, this, 1);
+            propQuestion.Show();
+        }
+
+        private void zPoziomamiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap EditMap = new Bitmap(this.picboxCopyMap);
+            EditMap = new Bitmap(this.picboxCopyMap);
+            PropQuestion propQuestion2 = new PropQuestion(EditMap, this, 2);
+            propQuestion2.Show();
+        }
+
+        private void posteryzacjaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap EditMap = new Bitmap(this.picboxCopyMap);
+            EditMap = new Bitmap(this.picboxCopyMap);
+            PropQuestion propQuestion3 = new PropQuestion(EditMap, this, 3);
+            propQuestion3.Show();
+        }
+
+        private void rozciąganieSelektywneToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap EditMap = new Bitmap(this.picboxCopyMap);
+            EditMap = new Bitmap(this.picboxCopyMap);
+            PropQuestion propQuestion4 = new PropQuestion(EditMap, this, 4);
+            propQuestion4.Show();
         }
     }
 

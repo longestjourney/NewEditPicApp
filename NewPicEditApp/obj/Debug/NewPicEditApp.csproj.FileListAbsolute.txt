@@ -40,3 +40,4 @@ C:\Users\natwi\OneDrive\Documents\GitHub\NewPicEdit\NewEditPicApp\NewPicEditApp\
 C:\Users\natwi\OneDrive\Documents\GitHub\NewPicEdit\NewEditPicApp\NewPicEditApp\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\natwi\OneDrive\Documents\GitHub\NewPicEdit\NewEditPicApp\NewPicEditApp\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\natwi\OneDrive\Documents\GitHub\NewPicEdit\NewEditPicApp\NewPicEditApp\obj\Debug\NewPicEditApp.csproj.CopyComplete
+C:\Users\natwi\OneDrive\Documents\GitHub\NewPicEdit\NewEditPicApp\NewPicEditApp\obj\Debug\NewPicEditApp.Form2.resources

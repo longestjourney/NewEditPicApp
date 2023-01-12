@@ -9,14 +9,16 @@ namespace NewPicEditApp
 {
     internal class Histogram
     {
-
             int[] RHistogram = new int[256];
             int[] GHistogram = new int[256];
             int[] BHistogram = new int[256];
             int[] AHistogram = new int[256];
             int[,] FullHistogram = new int[256, 4];
             Bitmap lol;
-            public Histogram(Bitmap lol)
+
+        public int[,] FHistogram { get { return FullHistogram; } private set { } }
+
+        public Histogram(Bitmap lol)
             {
                 this.lol = lol;
                 for (int x = 0; x < this.lol.Width; ++x)
@@ -42,8 +44,6 @@ namespace NewPicEditApp
 
             //to ma być jakby tworzenie histogramu - co zgadza się z ideą konstruktora
             }
-        public int MyProperty { get; private set; }
-
 
     }
 }
