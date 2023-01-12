@@ -73,10 +73,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form2.cs">
+    <Compile Include="Testy\Form2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
+    <Compile Include="Testy\Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="Histogram\Histogram.cs" />
@@ -89,7 +89,7 @@
     <Compile Include="PropQuestion.Designer.cs">
       <DependentUpon>PropQuestion.cs</DependentUpon>
     </Compile>
-    <Compile Include="stare.cs" />
+    <Compile Include="Testy\stare.cs" />
     <Compile Include="TablesMethods.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -108,7 +108,7 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
+    <EmbeddedResource Include="Testy\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HistogramForm.resx">
