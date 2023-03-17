@@ -28,21 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.picbox = new System.Windows.Forms.PictureBox();
             this.co_histogram_operations = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.histogramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.miOperacjeJednop = new System.Windows.Forms.ToolStripMenuItem();
-            this.miInvert = new System.Windows.Forms.ToolStripMenuItem();
-            this.posteryzacjaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rozciąganieSelektywneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zwykłeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zPoziomamiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.progowanieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pokażToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rozciąToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.equalizacjaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.miOperacjeJednop = new System.Windows.Forms.ToolStripMenuItem();
+            this.miInvert = new System.Windows.Forms.ToolStripMenuItem();
+            this.progowanieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zwykłeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zPoziomamiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.posteryzacjaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rozciąganieSelektywneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picbox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -99,6 +101,27 @@
             this.histogramToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.histogramToolStripMenuItem.Text = "Histogram";
             // 
+            // pokażToolStripMenuItem
+            // 
+            this.pokażToolStripMenuItem.Name = "pokażToolStripMenuItem";
+            this.pokażToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.pokażToolStripMenuItem.Text = "Pokaż";
+            this.pokażToolStripMenuItem.Click += new System.EventHandler(this.pokażToolStripMenuItem_Click);
+            // 
+            // rozciąToolStripMenuItem
+            // 
+            this.rozciąToolStripMenuItem.Name = "rozciąToolStripMenuItem";
+            this.rozciąToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.rozciąToolStripMenuItem.Text = "Rozciągnij";
+            this.rozciąToolStripMenuItem.Click += new System.EventHandler(this.rozciąToolStripMenuItem_Click);
+            // 
+            // equalizacjaToolStripMenuItem
+            // 
+            this.equalizacjaToolStripMenuItem.Name = "equalizacjaToolStripMenuItem";
+            this.equalizacjaToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.equalizacjaToolStripMenuItem.Text = "Equalizacja";
+            this.equalizacjaToolStripMenuItem.Click += new System.EventHandler(this.equalizacjaToolStripMenuItem_Click);
+            // 
             // miOperacjeJednop
             // 
             this.miOperacjeJednop.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -113,9 +136,32 @@
             // miInvert
             // 
             this.miInvert.Name = "miInvert";
-            this.miInvert.Size = new System.Drawing.Size(180, 22);
+            this.miInvert.Size = new System.Drawing.Size(198, 22);
             this.miInvert.Text = "Negatyw";
             this.miInvert.Click += new System.EventHandler(this.miInvert_Click);
+            // 
+            // progowanieToolStripMenuItem
+            // 
+            this.progowanieToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.zwykłeToolStripMenuItem,
+            this.zPoziomamiToolStripMenuItem});
+            this.progowanieToolStripMenuItem.Name = "progowanieToolStripMenuItem";
+            this.progowanieToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.progowanieToolStripMenuItem.Text = "Progowanie";
+            // 
+            // zwykłeToolStripMenuItem
+            // 
+            this.zwykłeToolStripMenuItem.Name = "zwykłeToolStripMenuItem";
+            this.zwykłeToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.zwykłeToolStripMenuItem.Text = "Zwykłe";
+            this.zwykłeToolStripMenuItem.Click += new System.EventHandler(this.zwykłeToolStripMenuItem_Click);
+            // 
+            // zPoziomamiToolStripMenuItem
+            // 
+            this.zPoziomamiToolStripMenuItem.Name = "zPoziomamiToolStripMenuItem";
+            this.zPoziomamiToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.zPoziomamiToolStripMenuItem.Text = "Z poziomami";
+            this.zPoziomamiToolStripMenuItem.Click += new System.EventHandler(this.zPoziomamiToolStripMenuItem_Click);
             // 
             // posteryzacjaToolStripMenuItem
             // 
@@ -130,50 +176,6 @@
             this.rozciąganieSelektywneToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.rozciąganieSelektywneToolStripMenuItem.Text = "Rozciąganie selektywne";
             this.rozciąganieSelektywneToolStripMenuItem.Click += new System.EventHandler(this.rozciąganieSelektywneToolStripMenuItem_Click);
-            // 
-            // zwykłeToolStripMenuItem
-            // 
-            this.zwykłeToolStripMenuItem.Name = "zwykłeToolStripMenuItem";
-            this.zwykłeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.zwykłeToolStripMenuItem.Text = "Zwykłe";
-            this.zwykłeToolStripMenuItem.Click += new System.EventHandler(this.zwykłeToolStripMenuItem_Click);
-            // 
-            // zPoziomamiToolStripMenuItem
-            // 
-            this.zPoziomamiToolStripMenuItem.Name = "zPoziomamiToolStripMenuItem";
-            this.zPoziomamiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.zPoziomamiToolStripMenuItem.Text = "Z poziomami";
-            this.zPoziomamiToolStripMenuItem.Click += new System.EventHandler(this.zPoziomamiToolStripMenuItem_Click);
-            // 
-            // progowanieToolStripMenuItem
-            // 
-            this.progowanieToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.zwykłeToolStripMenuItem,
-            this.zPoziomamiToolStripMenuItem});
-            this.progowanieToolStripMenuItem.Name = "progowanieToolStripMenuItem";
-            this.progowanieToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.progowanieToolStripMenuItem.Text = "Progowanie";
-            // 
-            // pokażToolStripMenuItem
-            // 
-            this.pokażToolStripMenuItem.Name = "pokażToolStripMenuItem";
-            this.pokażToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.pokażToolStripMenuItem.Text = "Pokaż";
-            this.pokażToolStripMenuItem.Click += new System.EventHandler(this.pokażToolStripMenuItem_Click);
-            // 
-            // rozciąToolStripMenuItem
-            // 
-            this.rozciąToolStripMenuItem.Name = "rozciąToolStripMenuItem";
-            this.rozciąToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.rozciąToolStripMenuItem.Text = "Rozciągnij";
-            this.rozciąToolStripMenuItem.Click += new System.EventHandler(this.rozciąToolStripMenuItem_Click);
-            // 
-            // equalizacjaToolStripMenuItem
-            // 
-            this.equalizacjaToolStripMenuItem.Name = "equalizacjaToolStripMenuItem";
-            this.equalizacjaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.equalizacjaToolStripMenuItem.Text = "Equalizacja";
-            this.equalizacjaToolStripMenuItem.Click += new System.EventHandler(this.equalizacjaToolStripMenuItem_Click);
             // 
             // PicForm
             // 
@@ -211,6 +213,7 @@
         private System.Windows.Forms.ToolStripMenuItem pokażToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rozciąToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem equalizacjaToolStripMenuItem;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
