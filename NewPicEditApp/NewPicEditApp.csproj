@@ -73,6 +73,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Picture\PictureFactory.cs" />
     <Compile Include="Testy\Form2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,7 +81,6 @@
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="Histogram\Histogram.cs" />
-    <Compile Include="Picture\PictureCreator.cs" />
     <Compile Include="Picture\Picture.cs" />
     <Compile Include="Picture\PictureInvert.cs" />
     <Compile Include="PropQuestion.cs">

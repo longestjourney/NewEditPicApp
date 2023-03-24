@@ -19,12 +19,30 @@ namespace NewPicEditApp
         int max;
         double cumulativesum = 0;
         internal Bitmap picboxCopyMap;
-        List<string> onePixelOpList = new List<string> { "invert", "progowanie", "costam" };
 
         //to jest konstruktor okienka PicForm
         public PicForm() { InitializeComponent(); }
 
         private void PicForm_Load(object sender, EventArgs e) { }
+
+        private void menuOpen_Click(object sender, EventArgs e)
+        {
+            try
+            {//próba otwarcia pliku z obrazem
+                dialog.Filter = "bmp files(*.bmp)|*.bmp| jpg files(.*jpg)|*.jpg| PNG files(.*png)|*.png| All Files(*.*)|*.**";
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    this.picboxCopyMap = new Bitmap(dialog.FileName);
+                    this.picbox.Image = picboxCopyMap;
+                    Picture mypicture = new Picture(picboxCopyMap);
+                }
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("An Error Occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void pokażToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -154,24 +172,7 @@ namespace NewPicEditApp
             else { MessageBox.Show("Nie wybrano obrazu", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
-        private void menuOpen_Click(object sender, EventArgs e)
-        {
-            try
-            {//próba otwarcia pliku z obrazem
-                dialog.Filter = "bmp files(*.bmp)|*.bmp| jpg files(.*jpg)|*.jpg| PNG files(.*png)|*.png| All Files(*.*)|*.**";
-                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    this.picboxCopyMap = new Bitmap(dialog.FileName);
-                    this.picbox.Image = picboxCopyMap;
-                    Picture mypicture = new Picture(picboxCopyMap);
-                }
-
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("An Error Occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+       
 
         public class jakiesoperacje{}
 
@@ -183,9 +184,7 @@ namespace NewPicEditApp
     private void miInvert_Click(object sender, EventArgs e)
         {
             Bitmap EditMap = new Bitmap(this.picboxCopyMap);
-            picboxCopyMap = PictureCreator.CreatePicture(EditMap,
-                onePixelOpList[0]).toBitmap();
-            picbox.Image = picboxCopyMap;
+            picbox.Image = PictureFactory.make("invert", EditMap).toBitmap();
         }
 
         //
