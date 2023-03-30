@@ -86,7 +86,7 @@
             series1.MarkerBorderColor = System.Drawing.Color.Red;
             series1.Name = "RED";
             this.chRED.Series.Add(series1);
-            this.chRED.Size = new System.Drawing.Size(240, 258);
+            this.chRED.Size = new System.Drawing.Size(261, 258);
             this.chRED.TabIndex = 11;
             this.chRED.Text = "chart1";
             // 
@@ -96,7 +96,7 @@
             this.chGREEN.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chGREEN.Legends.Add(legend2);
-            this.chGREEN.Location = new System.Drawing.Point(258, 12);
+            this.chGREEN.Location = new System.Drawing.Point(279, 12);
             this.chGREEN.Name = "chGREEN";
             this.chGREEN.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             series2.ChartArea = "ChartArea1";
@@ -114,7 +114,7 @@
             this.chBLUE.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
             this.chBLUE.Legends.Add(legend3);
-            this.chBLUE.Location = new System.Drawing.Point(504, 12);
+            this.chBLUE.Location = new System.Drawing.Point(525, 12);
             this.chBLUE.Name = "chBLUE";
             this.chBLUE.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             series3.ChartArea = "ChartArea1";
@@ -160,7 +160,7 @@
             this.GridViewRED.Location = new System.Drawing.Point(12, 276);
             this.GridViewRED.Name = "GridViewRED";
             this.GridViewRED.ReadOnly = true;
-            this.GridViewRED.Size = new System.Drawing.Size(240, 150);
+            this.GridViewRED.Size = new System.Drawing.Size(261, 150);
             this.GridViewRED.TabIndex = 20;
             // 
             // NO
@@ -188,7 +188,7 @@
             this.GridViewGREEN.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
-            this.GridViewGREEN.Location = new System.Drawing.Point(258, 276);
+            this.GridViewGREEN.Location = new System.Drawing.Point(279, 276);
             this.GridViewGREEN.Name = "GridViewGREEN";
             this.GridViewGREEN.ReadOnly = true;
             this.GridViewGREEN.Size = new System.Drawing.Size(240, 150);
@@ -219,7 +219,7 @@
             this.GridViewBLUE.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
-            this.GridViewBLUE.Location = new System.Drawing.Point(504, 276);
+            this.GridViewBLUE.Location = new System.Drawing.Point(525, 276);
             this.GridViewBLUE.Name = "GridViewBLUE";
             this.GridViewBLUE.ReadOnly = true;
             this.GridViewBLUE.Size = new System.Drawing.Size(240, 150);
@@ -245,7 +245,7 @@
             this.cValue.ChartAreas.Add(chartArea5);
             legend5.Name = "Legend1";
             this.cValue.Legends.Add(legend5);
-            this.cValue.Location = new System.Drawing.Point(258, 12);
+            this.cValue.Location = new System.Drawing.Point(279, 12);
             this.cValue.Name = "cValue";
             this.cValue.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             series5.ChartArea = "ChartArea1";
@@ -268,7 +268,7 @@
             this.GridViewValues.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
-            this.GridViewValues.Location = new System.Drawing.Point(258, 276);
+            this.GridViewValues.Location = new System.Drawing.Point(279, 276);
             this.GridViewValues.Name = "GridViewValues";
             this.GridViewValues.ReadOnly = true;
             this.GridViewValues.Size = new System.Drawing.Size(240, 150);
