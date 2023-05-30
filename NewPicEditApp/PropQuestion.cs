@@ -152,12 +152,14 @@ namespace NewPicEditApp
                         }
                     }
                     form.picbox.Image = this.bmp;
+                    form.picboxCopyMap = bmp;
                     break;
                 case 4:
                    int progp1 = Convert.ToInt32(tbProp.Text);
                    int progp2 = Convert.ToInt32(tbProp2.Text);
                     int progq3 = Convert.ToInt32(tbQprop1.Text);
                     int progq4 = Convert.ToInt32(tbQprop2.Text);
+                    
                     for (int x = 0; x < bmp.Width; ++x)
                     {
                         for (int y = 0; y < bmp.Height; ++y)
@@ -167,9 +169,9 @@ namespace NewPicEditApp
                             {
                                 //to nie działa
                                 Color newColor = Color.FromArgb(
-                                       Math.Abs((pixelColor.R) - progq3) * ((255) / (progq4 - progq3)),
-                                       Math.Abs((pixelColor.G) - progq3) * ((255) / (progq4 - progq3)),
-                                       Math.Abs((pixelColor.B) - progq3) * ((255) / (progq4 - progq3)));
+                                       Math.Abs((pixelColor.R) - progp1) * ((progq4-progq3) / (progp2 - progp1)),
+                                       Math.Abs((pixelColor.G) - progp1) * ((progq4 - progq3) / (progp2 - progp1)),
+                                       Math.Abs((pixelColor.B) - progp1) * ((progq4 - progq3) / (progp2 - progp1)));
 
                                 bmp.SetPixel(x, y, newColor);
                             }
