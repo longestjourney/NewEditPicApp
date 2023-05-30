@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Emgu.CV.Platform.NetFramework, Version=4.3.0.3890, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>packages\Emgu.CV.4.3.0.3890\lib\net461\Emgu.CV.Platform.NetFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.Platform.NetStandard, Version=4.3.0.3890, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>packages\Emgu.CV.4.3.0.3890\lib\net461\Emgu.CV.Platform.NetStandard.dll</HintPath>
+    </Reference>
     <Reference Include="GraphQL, Version=7.2.1.0, Culture=neutral, PublicKeyToken=e6238258560628ee, processorArchitecture=MSIL">
       <HintPath>packages\GraphQL.7.2.1\lib\netstandard2.0\GraphQL.dll</HintPath>
     </Reference>
@@ -46,8 +54,14 @@
     <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Drawing.Primitives.4.3.0\lib\net45\System.Drawing.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
@@ -55,8 +69,18 @@
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
@@ -73,7 +97,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\MultiplePicturesMode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MultiplePicturesMode.Designer.cs">
+      <DependentUpon>MultiplePicturesMode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProgQuest2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProgQuest2.Designer.cs">
+      <DependentUpon>ProgQuest2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Histogram\HistogramEqulize.cs" />
+    <Compile Include="Histogram\HistogramStretch.cs" />
+    <Compile Include="Exceptions\PictureNotLoadedException.cs" />
+    <Compile Include="Forms\MultiplePictures.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MultiplePictures.Designer.cs">
+      <DependentUpon>MultiplePictures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Maski.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Maski.Designer.cs">
+      <DependentUpon>Maski.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Picture\PicturePosterize.cs" />
+    <Compile Include="Picture\PictureToGreyscaleConverter.cs" />
     <Compile Include="Picture\PictureFactory.cs" />
+    <Compile Include="LiniaProfilu\ProfileLine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LiniaProfilu\ProfileLine.Designer.cs">
+      <DependentUpon>ProfileLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LiniaProfilu\ProfileLineElements.cs" />
     <Compile Include="Testy\Form2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,35 +143,50 @@
     <Compile Include="Histogram\Histogram.cs" />
     <Compile Include="Picture\Picture.cs" />
     <Compile Include="Picture\PictureInvert.cs" />
-    <Compile Include="PropQuestion.cs">
+    <Compile Include="Forms\PropQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PropQuestion.Designer.cs">
+    <Compile Include="Forms\PropQuestion.Designer.cs">
       <DependentUpon>PropQuestion.cs</DependentUpon>
     </Compile>
     <Compile Include="Testy\stare.cs" />
     <Compile Include="TablesMethods.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="HistogramForm.cs">
+    <Compile Include="Forms\HistogramForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HistogramForm.Designer.cs">
+    <Compile Include="Forms\HistogramForm.Designer.cs">
       <DependentUpon>HistogramForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Maski.resx">
+      <DependentUpon>Maski.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MultiplePicturesMode.resx">
+      <DependentUpon>MultiplePicturesMode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProgQuest2.resx">
+      <DependentUpon>ProgQuest2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LiniaProfilu\ProfileLine.resx">
+      <DependentUpon>ProfileLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MultiplePictures.resx">
+      <DependentUpon>MultiplePictures.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Testy\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HistogramForm.resx">
+    <EmbeddedResource Include="Forms\HistogramForm.resx">
       <DependentUpon>HistogramForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -123,7 +198,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="PropQuestion.resx">
+    <EmbeddedResource Include="Forms\PropQuestion.resx">
       <DependentUpon>PropQuestion.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -141,4 +216,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\Emgu.CV.runtime.windows.4.3.0.3890\build\Emgu.CV.runtime.windows.targets" Condition="Exists('packages\Emgu.CV.runtime.windows.4.3.0.3890\build\Emgu.CV.runtime.windows.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ten projekt zawiera odwołania do pakietów NuGet, których nie ma na tym komputerze. Użyj przywracania pakietów NuGet, aby je pobrać. Aby uzyskać więcej informacji, zobacz http://go.microsoft.com/fwlink/?LinkID=322105. Brakujący plik: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Emgu.CV.runtime.windows.4.3.0.3890\build\Emgu.CV.runtime.windows.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Emgu.CV.runtime.windows.4.3.0.3890\build\Emgu.CV.runtime.windows.targets'))" />
+  </Target>
 </Project>

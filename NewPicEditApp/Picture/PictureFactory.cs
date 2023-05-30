@@ -16,6 +16,9 @@ namespace NewPicEditApp
             {
                 {"new", (picture)=> new Picture(picture)},
                 {"invert", (picture)=> new PictureInvert(picture)},
+                {"stretch",(picture)=> new HistogramStretch(picture)},
+                {"equlize",(picture)=> new HistogramEqulize(picture)},
+                //{"posterize" ,(picture,)=> new PicturePosterize(picture,)},
             };
         public static readonly string[] keys = map.Keys.OrderBy(s => s).ToArray();
 
